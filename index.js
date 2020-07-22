@@ -12,13 +12,15 @@ dotenv.config();
 const contextpath = process.env.contextpath;
 const restpath = process.env.restpath;
 const configpath = process.env.configpath;
+const uipath = process.env.uipath;
 const port = process.env.port;
 
 console.debug("contextpath=" + contextpath);
 console.debug("restpath=" + restpath);
 console.debug("configpath=" + configpath);
+console.debug("uipath=" + uipath);
 
-app.use(contextpath, express.static('static'));
+app.use(contextpath, express.static(uipath));
 
 var mobileWebServer = new MobileWebServiceVirtualizationServer();
 
