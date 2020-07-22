@@ -2,8 +2,8 @@ import {RestMockServer} from "./AbstractServiceVirtualizationServer.js";
 
 class MobileWebServiceVirtualizationServer extends RestMockServer {
 
-	constructor() {
-		super("mobilewebmockserver");
+	constructor(mockDataHome) {
+		super("mobilewebmockserver", mockDataHome);
 	}
 	
 	handleException(resp, respStr) {

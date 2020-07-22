@@ -9,12 +9,14 @@ app.use(cookieParser());
 
 dotenv.config();
 
+const mockDataHome = process.env.servicevirtualizationdata_home;
 const contextpath = process.env.contextpath;
 const restpath = process.env.restpath;
 const configpath = process.env.configpath;
 const uipath = process.env.uipath;
 const port = process.env.port;
 
+console.debug("mockDataHome=" + mockDataHome);
 console.debug("contextpath=" + contextpath);
 console.debug("restpath=" + restpath);
 console.debug("configpath=" + configpath);
@@ -22,7 +24,7 @@ console.debug("uipath=" + uipath);
 
 app.use(contextpath, express.static(uipath));
 
-var mobileWebServer = new MobileWebServiceVirtualizationServer();
+var mobileWebServer = new MobileWebServiceVirtualizationServer(mockDataHome);
 
 app.post(contextpath + restpath + configpath, (req, res, next) => {
 	console.debug("url=" + req.url);

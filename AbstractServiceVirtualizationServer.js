@@ -7,10 +7,10 @@ class AbstractServiceVirtualizationServer {
 	mockDataHome;
 	mockServerName;
 	
-	constructor(mockServerName) {
+	constructor(mockServerName, mockDataHome) {
 
 		this.mockServerName = mockServerName;
-		this.mockDataHome = process.env.servicevirtualizationdata_home;
+		this.mockDataHome = mockDataHome;
 		this.mockData = new MockData(mockServerName, this.mockDataHome);
 	}
 	
@@ -214,8 +214,8 @@ class AbstractServiceVirtualizationServer {
 
 class SoapMockServer extends AbstractServiceVirtualizationServer {
 
-	constructor(mockServerName) {
-		super(mockServerName);
+	constructor(mockServerName, mockDataHome) {
+		super(mockServerName, mockDataHome);
 	}
 	
 	getContentType() {
@@ -241,8 +241,8 @@ class SoapMockServer extends AbstractServiceVirtualizationServer {
 	
 class RestMockServer extends AbstractServiceVirtualizationServer {
 
-	constructor(mockServerName) {
-		super(mockServerName);
+	constructor(mockServerName, mockDataHome) {
+		super(mockServerName, mockDataHome);
 	}
 	
 	getContentType() {
