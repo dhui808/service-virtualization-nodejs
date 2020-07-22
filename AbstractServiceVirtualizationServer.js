@@ -34,12 +34,12 @@ class AbstractServiceVirtualizationServer {
 		
 		// Handle other requests - by default, it is the selecting flow and scenario.
 		var isSetFlow = this.addFlowScenarioCookies(req, resp);
-		if (!isSetFlow) {
-			//normal rest GET request
-			var respFilePath = this.findResponseFilePath(req, resp, "_GET");
-
-			this.populateResponse(req, resp, respFilePath);
-		}
+//		if (!isSetFlow) {
+//			//normal rest GET request
+//			var respFilePath = this.findResponseFilePath(req, resp, "_GET");
+//
+//			this.populateResponse(req, resp, respFilePath);
+//		}
 	}
 	
 	handleRetrieveEntryPageURL(resp)  {
@@ -170,9 +170,11 @@ class AbstractServiceVirtualizationServer {
 		
 		let options = {"path": "/"};
 		
-		for (key of Object.keys(cookies)) {
-			
-			if (key != responseFileName) continue;
+		var items = Object.keys(cookies).filter(key => key == responseFileName);
+		
+		if (null != items && items.length > 0) {
+
+			var key = items[0];
 			
 			//key == responseFileName
 			foundCookie = true;
@@ -187,8 +189,6 @@ class AbstractServiceVirtualizationServer {
 			}
 			
 			resp.cookie(key, value, options);
-			
-			break;
 		}
 		
 		if (!foundCookie) {
