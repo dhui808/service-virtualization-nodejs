@@ -150,7 +150,7 @@ class AbstractServiceVirtualizationServer {
 
 		var pathInfo = this.getPathInfo(req);
 		
-		if((pathInfo + method).includes(alternateResponseFiles)) {
+		if(alternateResponseFiles.includes(pathInfo)) {
 			var sendAlternate = this.changeCountCookie(responseFileName, req, resp);
 			if (sendAlternate) {
 				responseFile = filePathNoSuffix + "2.json";
@@ -203,7 +203,11 @@ class AbstractServiceVirtualizationServer {
 	}
 	
 	getPathInfo(req) {
-		return req.url.match('^[^?]*')[0];
+		
+		var path = req.url.match('^[^?]*')[0];
+		let pathPrefix = process.env.contextpath + process.env.restpath;
+		
+		return path.replace(pathPrefix, "");
 	}
 	
 	getContentType() {}
