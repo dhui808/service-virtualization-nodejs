@@ -32,7 +32,7 @@ app.post(contextpath + restpath + configpath, (req, res, next) => {
 	res.end();
 });
 
-app.post(contextpath + restpath + "*", (req, res, next) => {
+app.post(contextpath + restpath + "/*", (req, res, next) => {
 	console.debug("url=" + req.url);
 	mobileWebServer.doPost(req, res);
 	res.end();
