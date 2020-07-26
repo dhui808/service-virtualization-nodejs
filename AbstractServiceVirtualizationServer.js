@@ -1,4 +1,4 @@
-import MockData from "./lib/MockData.js";
+import { MockData } from "./lib/MockData.js";
 import fs from 'fs';
 
 class AbstractServiceVirtualizationServer {
