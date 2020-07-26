@@ -50,10 +50,10 @@ docker ps
 ### Stop the running Docker container
 docker container stop <container_id> 
 
-### Delete all stopped Docker containers
+### Delete all stopped Docker containers (Git Bash)
 
 docker rm $(docker ps -a -q)
 
-### Delete all Docker images
+### Delete all Docker images  (Git Bash)
  
 docker rmi -f $(docker images -a -q)
