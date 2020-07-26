@@ -2,6 +2,12 @@
 
 This project uses Node.js to implement the Service Virtualization for testing Mobile banking frontend in various business use cases.
 
+## Dependency
+
+[service virtualization UI application](https://github.com/dhui808/service-virtualization-ui)
+
+[service virtualization data](https://github.com/dhui808/service-virtualization-data)
+
 ## Create Dockfile and .dockerignore
 
 ## Run Node.js application from command line
