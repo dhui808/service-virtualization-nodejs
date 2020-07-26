@@ -13,14 +13,14 @@ RUN npm install
 # Bundle app source
 COPY . .
 COPY .env ./
-COPY servicevirtualizationdata /usr/service-virtualization-data
+COPY servicevirtualizationdata /usr/service-virtualization-data/servicevirtualizationdata
 COPY static /usr/service-virtualization-ui/static
 
 RUN /bin/bash -l -c "ls -la"
 
 RUN groupadd --gid 2000 appusergroup  && useradd --uid 2000 --gid appusergroup --shell /bin/bash --create-home appuser
-RUN chown -R appuser:appusergroup /usr/service-virtualization-data
-RUN chmod -R 755 /usr/service-virtualization-data
+RUN chown -R appuser:appusergroup /usr/service-virtualization-data/servicevirtualizationdata
+RUN chmod -R 755 /usr/service-virtualization-data/servicevirtualizationdata
 RUN chown -R appuser:appusergroup /usr/service-virtualization-ui/static
 RUN chmod -R 755 /usr/service-virtualization-ui/static
 
