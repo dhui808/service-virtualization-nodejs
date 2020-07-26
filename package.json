@@ -5,6 +5,11 @@
   "description": "Node service virtualization server",
   "main": "index.js",
   "scripts": {
+    "copy-lib": "Robocopy /S /usr/service-virtualization-utils-nodejs/utils lib",
+    "copy-mockdata": "Robocopy /MIR /usr/service-virtualization-data/servicevirtualizationdata servicevirtualizationdata",
+    "copy-static": "Robocopy /MIR /usr/service-virtualization-ui/static static",
+    "build-docker": "npm run copy-lib && npm run copy-mockdata && npm run copy-static && docker build -t dannyhui/service-virtualization-nodejs .",
+    "run-docker": "docker run -d -p 8080:8080 -t dannyhui/service-virtualization-nodejs",
     "test": "test"
   },
   "keywords": [
