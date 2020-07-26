@@ -14,6 +14,10 @@ This project uses Node.js to implement the Service Virtualization for testing Mo
 
 node src/index.js
 
+## Run Node.js application in debugging mode from command line
+
+node --inspect src/index.js
+
 ## Build Docker image
 
 In package.json, add:
