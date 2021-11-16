@@ -8,8 +8,18 @@ This project uses Node.js to implement the Service Virtualization for testing Mo
 
 [service virtualization data](https://github.com/dhui808/service-virtualization-data)
 
-## Create Dockfile and .dockerignore
+## Install NPM
+npm install
 
+## Configuration
+In .env configuration file, modify the following entries:
+  
+	servicevirtualizationdata_home: Pointing to the root folder of service virtualization data. For   instance,  
+		servicevirtualizationdata_home=/usr/service-virtualization-data/servicevirtualizationdata  
+	
+	uipath: Pointing to the root folder of the service virtualization ui static files. For instance,  
+		uipath=/usr/service-virtualization-ui/static
+	
 ## Run Node.js application from command line
 
 node src/index.js
